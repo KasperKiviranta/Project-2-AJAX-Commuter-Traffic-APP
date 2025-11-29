@@ -16,7 +16,7 @@ header {
 
 main {
     padding: 2rem;
-    position: relative; /* Needed for dropdown positioning */
+    position: relative; 
 }
 
 #station-selection {

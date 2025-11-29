@@ -117,3 +117,20 @@ searchBtn.addEventListener("click", async () => {
 
 /* Initialize stations on page load */
 fetchStations();
+
+async function init() {
+    await fetchStations();
+
+    // Set default station to Helsinki
+    const helsinkiStation = allStations.find(st => st.shortCode === "HKI");
+    if (helsinkiStation) {
+        stationInput.value = helsinkiStation.name;   // Display in input
+        stationInput.dataset.code = helsinkiStation.shortCode; // Save short code
+
+        // Fetch and render Helsinki trains immediately
+        const trains = await fetchTrains(helsinkiStation.shortCode);
+        renderTrains(trains);
+    }
+}
+
+init();
