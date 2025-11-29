@@ -1,0 +1,70 @@
+/* File: style.css | Author: Kasper Kiviranta | Date: 29.11.2025 | Purpose: Styling page layout */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0077b6;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+main {
+    padding: 2rem;
+    position: relative; /* Needed for dropdown positioning */
+}
+
+#station-selection {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+#station-input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 200px;
+}
+
+#search-btn {
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+#timetable {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#train-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Dropdown styling */
+.dropdown {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    width: 200px;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none; /* Hidden by default */
+    z-index: 1000;
+}
+
+.dropdown div {
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.dropdown div:hover {
+    background-color: #f0f0f0;
+}

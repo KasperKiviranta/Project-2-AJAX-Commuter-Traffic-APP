@@ -1,0 +1,33 @@
+<!-- File: index.html | Author: Kasper Kiviranta | Date: 29.11.2025 | Purpose: Main page layout -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commuter Traffic APP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Commuter Traffic APP</h1>
+    </header>
+
+    <main>
+        <!-- User selects station -->
+        <section id="station-selection">
+            <label for="station-input">Enter Station Name:</label>
+            <input type="text" id="station-input" placeholder="e.g., Helsinki" autocomplete="off">
+            <div id="station-dropdown" class="dropdown"></div>
+            <button id="search-btn">Search</button>
+        </section>
+
+        <!-- Train timetable results -->
+        <section id="timetable">
+            <h2>Train Schedule</h2>
+            <ul id="train-list"></ul>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
