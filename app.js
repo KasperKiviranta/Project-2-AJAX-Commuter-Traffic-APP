@@ -89,22 +89,33 @@ function renderTrains(trains) {
     }
 
     trains.forEach(train => {
-        // Find the timetable row for this station
-        const stationRow = train.timeTableRows.find(r => r.stationShortCode === stationInput.dataset.code && r.type === "ARRIVAL");
-        if (!stationRow) return;
+    // Find the timetable row for this station
+    const stationRow = train.timeTableRows.find(
+        r => r.stationShortCode === stationInput.dataset.code && r.type === "ARRIVAL"
+    );
+    if (!stationRow) return;
 
-        const scheduledTime = new Date(stationRow.scheduledTime);
-        const liveTime = stationRow.liveEstimateTime ? new Date(stationRow.liveEstimateTime) : null;
-        const delay = liveTime ? Math.round((liveTime - scheduledTime)/60000) : 0;
+    const scheduledTime = new Date(stationRow.scheduledTime);
+    const liveTime = stationRow.liveEstimateTime ? new Date(stationRow.liveEstimateTime) : null;
+    const delay = liveTime ? Math.round((liveTime - scheduledTime) / 60000) : 0;
 
-        const li = document.createElement("li");
-        li.innerHTML = `
-            <strong>Train ${train.commuterLineID}</strong> (${train.trainType})<br>
-            Scheduled: ${scheduledTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}<br>
-            ${delay ? `<span style="color:red;">Delay: ${delay} min</span>` : 'On time'}
-        `;
-        trainList.appendChild(li);
-    });
+    // Choose commuter ID or fallback to trainType
+    const displayName = train.commuterLineID && train.commuterLineID !== ""
+        ? train.commuterLineID
+        : train.trainNumber;
+
+    const li = document.createElement("li");
+    li.innerHTML = `
+        <strong>Train ${displayName}</strong> (${train.trainType})<br>
+        Scheduled: ${scheduledTime.toLocaleTimeString([], { hour: '2-digit', minute:'2-digit' })}<br>
+        ${
+            delay
+                ? `<span style="color:red;">Delay: ${delay} min</span>`
+                : 'On time'
+        }
+    `;
+    trainList.appendChild(li);
+});
 }
 
 /* Handle search button click */
