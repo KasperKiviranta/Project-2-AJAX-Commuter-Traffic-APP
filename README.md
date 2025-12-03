@@ -21,7 +21,7 @@ A web application designed to help commuters in Finland check real-time train sc
 
 This project relies on the open data provided by Fintraffic via the Digitraffic Rata-API:
 
-* **API Provider:** [Digitraffic API (Fintraffic)](https://www.digitraffic.fi/railway-traffic/)
+* **API Provider:** [Digitraffic API (Fintraffic)](https://www.digitraffic.fi/)
 * **Endpoints Used:**
     * `GET /api/v1/metadata/stations`: Used to fetch the master list of all passenger stations (names and short codes).
     * `GET /api/v1/live-trains?station={shortCode}`: Used to retrieve specific schedules and live estimates for the selected station.
